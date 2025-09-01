@@ -1,4 +1,5 @@
 
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Vector2 = UnityEngine.Vector2;
@@ -14,7 +15,33 @@ public class Player : MonoBehaviour
     private float _moveDirection;
     private float _minX, _maxX;
     
+    public int health = 500;
+    public TMPro.TMP_Text healthDisplay;
+    
     private void Start()
+    {
+        SetUpBorders();
+        InvokeRepeating(nameof(Shoot), 0f, shootInterval);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider2d)
+    {
+        if (!collider2d.CompareTag("Enemy-Bullet")) return;
+        var bullet = collider2d.GetComponent<Bullet>();
+
+        if (health - bullet.damage <= 0)
+        {
+            // Game Over
+        }
+        else
+        {
+            health = health - bullet.damage;
+        }
+        
+        Destroy(bullet.gameObject);
+    }
+    
+    private void SetUpBorders()
     {
         var cam = Camera.main;
         var halfWidth = cam.orthographicSize * cam.aspect;
@@ -24,10 +51,7 @@ public class Player : MonoBehaviour
         
         _minX = cam.transform.position.x - halfWidth + playerHalfWidth;
         _maxX = cam.transform.position.x + halfWidth - playerHalfWidth;
-        
-        InvokeRepeating(nameof(Shoot), 0f, shootInterval);
     }
-
     private void FixedUpdate()
     {
         rb.linearVelocity = new Vector2(_moveDirection * speed, rb.linearVelocity.y);
@@ -36,6 +60,8 @@ public class Player : MonoBehaviour
         var pos = transform.position;
         pos.x = Mathf.Clamp(pos.x, _minX, _maxX);
         transform.position = pos;
+        
+        healthDisplay.text = $"Health: {health}";
     }
 
     public void MoveLeft(InputAction.CallbackContext context)

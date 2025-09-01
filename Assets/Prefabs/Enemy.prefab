@@ -49,6 +49,8 @@ MonoBehaviour:
   health: 100
   scoreValue: 10
   moveSpeed: 1
+  shootInterval: 2
+  bulletPrefab: {fileID: 4028816155692127380, guid: 7aa49f47e039b7ddfb762bd7144d0050, type: 3}
 --- !u!212 &3640205494173068911
 SpriteRenderer:
   m_ObjectHideFlags: 0

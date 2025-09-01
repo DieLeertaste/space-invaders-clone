@@ -5,9 +5,12 @@ public class Bullet : MonoBehaviour
 {
     public new Camera camera;
     public new Renderer renderer;
+    
     public Rigidbody2D rb;
-    public float speed;
+    public float speed = 5f;
 
+    public int damage = 100;
+    
     private void Start()
     {
         if (camera == null) camera = Camera.main;

@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collider2d)
     {
+        if (!collider2d.CompareTag("Bullet")) return;
+        
         var bullet = collider2d.gameObject.GetComponent<Bullet>();
         if (bullet == null) return;
         

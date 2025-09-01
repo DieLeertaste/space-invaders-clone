@@ -1,0 +1,12 @@
+# ninja log v5
+5	1574	1756722716145514431	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	789255b82ece4a97
+4	1607	1756722716173196594	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	ecb947b0f3315b8c
+2	2106	1756722716668834097	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	6e9f871c90ab7e91
+2108	2429	1756722717003307878	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	e7059cc605962a16
+5	2433	1756722717003307878	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	384d7892e1de9767
+2	2472	1756722717047014927	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	27bca7452036212
+2429	2491	1756722717065014693	/home/noah/projects/unity/space-invaders-clone/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/35h46262/obj/arm64-v8a/libswappywrapper.so	f7651c870be9db0b
+1577	2498	1756722717075296913	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	fe1ece6de0f7a50c
+0	2923	1756722717489464662	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	e6d32a275698e4ef
+1610	3482	1756722718055337527	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	88873d0e94ee60be
+3482	3531	1756722718102001247	/home/noah/projects/unity/space-invaders-clone/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/35h46262/obj/arm64-v8a/libgame.so	38207447c94f5830

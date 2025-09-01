@@ -1,4 +1,5 @@
 
+using Unity.Notifications.Android;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Vector2 = UnityEngine.Vector2;
@@ -11,42 +12,57 @@ public class Player : MonoBehaviour
     public GameObject bulletPrefab;
     public float shootInterval = 5f;
     
-    private float moveDirection = 0f;
-
-    void Start()
+    private float _moveDirection = 0f;
+    private float _minX, _maxX;
+    
+    private void Start()
     {
-        InvokeRepeating(nameof(shoot), 0f, shootInterval);
+        var cam = Camera.main;
+        var halfWidth = cam.orthographicSize * cam.aspect;
+
+        var spriteRenderer = GetComponent<SpriteRenderer>();
+        var playerHalfWidth = spriteRenderer.bounds.extents.x;
+        
+        _minX = cam.transform.position.x - halfWidth + playerHalfWidth;
+        _maxX = cam.transform.position.x + halfWidth - playerHalfWidth;
+        
+        InvokeRepeating(nameof(Shoot), 0f, shootInterval);
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(moveDirection * speed, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(_moveDirection * speed, rb.linearVelocity.y);
+        
+        // Clamp position within screen bounds
+        var pos = transform.position;
+        pos.x = Mathf.Clamp(pos.x, _minX, _maxX);
+        transform.position = pos;
     }
 
-    public void moveLeft(InputAction.CallbackContext context)
+    public void MoveLeft(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            moveDirection = -1f;
+            _moveDirection = -1f;
         } else if (context.canceled)
         {
-            moveDirection = 0f;
+            _moveDirection = 0f;
         }
         
     }
 
-    public void moveRight(InputAction.CallbackContext context)
+    public void MoveRight(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            moveDirection = 1f;
+            _moveDirection = 1f;
         } else if (context.canceled)
         {
-            moveDirection = 0f;
+            _moveDirection = 0f;
         }
     }
 
-    public void shoot()
+    public void Shoot()
     {
         Instantiate(bulletPrefab, transform.position, Quaternion.identity);
     }

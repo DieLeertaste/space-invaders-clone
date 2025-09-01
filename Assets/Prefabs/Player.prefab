@@ -117,7 +117,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5845552453070151846}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: moveLeft
+        m_MethodName: MoveLeft
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -133,7 +133,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5845552453070151846}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: moveRight
+        m_MethodName: MoveRight
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

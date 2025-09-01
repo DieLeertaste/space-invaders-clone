@@ -1,5 +1,4 @@
 
-using Unity.Notifications.Android;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Vector2 = UnityEngine.Vector2;
@@ -12,7 +11,7 @@ public class Player : MonoBehaviour
     public GameObject bulletPrefab;
     public float shootInterval = 5f;
     
-    private float _moveDirection = 0f;
+    private float _moveDirection;
     private float _minX, _maxX;
     
     private void Start()

@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b844a29b11379062900e28d8277852a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 0}
+  renderer: {fileID: 1546255643318977232}
   rb: {fileID: 6953046501377637387}
   speed: 5
 --- !u!50 &6953046501377637387

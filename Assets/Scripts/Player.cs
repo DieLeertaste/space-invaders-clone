@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     
     public int health = 500;
     public TMPro.TMP_Text healthDisplay;
+
+    public GameObject gameOverDisplay;
     
     private void Start()
     {
@@ -29,14 +31,8 @@ public class Player : MonoBehaviour
         if (!collider2d.CompareTag("Enemy-Bullet")) return;
         var bullet = collider2d.GetComponent<Bullet>();
 
-        if (health - bullet.damage <= 0)
-        {
-            // Game Over
-        }
-        else
-        {
-            health = health - bullet.damage;
-        }
+        if (health - bullet.damage <= 0) GameOver();
+        else health = health - bullet.damage;
         
         Destroy(bullet.gameObject);
     }
@@ -52,8 +48,16 @@ public class Player : MonoBehaviour
         _minX = cam.transform.position.x - halfWidth + playerHalfWidth;
         _maxX = cam.transform.position.x + halfWidth - playerHalfWidth;
     }
+
+    private void GameOver()
+    {
+        PauseController.instance.IsPaused = true;
+        gameOverDisplay.SetActive(true);
+    }
     private void FixedUpdate()
     {
+        if (PauseController.instance.IsPaused) return;
+        
         rb.linearVelocity = new Vector2(_moveDirection * speed, rb.linearVelocity.y);
         
         // Clamp position within screen bounds
@@ -89,6 +93,7 @@ public class Player : MonoBehaviour
 
     public void Shoot()
     {
+        if (PauseController.instance.IsPaused) return;
         Instantiate(bulletPrefab, transform.position, Quaternion.identity);
     }
 }

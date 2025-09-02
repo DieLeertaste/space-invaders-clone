@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SpaceInvaders_LogoSmall_0: 5266601735180700903
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

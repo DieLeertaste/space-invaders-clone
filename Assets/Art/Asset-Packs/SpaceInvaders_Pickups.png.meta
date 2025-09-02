@@ -410,7 +410,18 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SpaceInvaders_Pickups_0: 8793716605453223759
+      SpaceInvaders_Pickups_1: 6859225609862853589
+      SpaceInvaders_Pickups_10: 456483208428662992
+      SpaceInvaders_Pickups_2: -7044160380648136582
+      SpaceInvaders_Pickups_3: -1545996416554079359
+      SpaceInvaders_Pickups_4: -5251395237946894473
+      SpaceInvaders_Pickups_5: 1394651447373925890
+      SpaceInvaders_Pickups_6: -5729562858867120576
+      SpaceInvaders_Pickups_7: 6450812853603886224
+      SpaceInvaders_Pickups_8: -8521179214825080178
+      SpaceInvaders_Pickups_9: 1008276216285462590
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class ScoreController : MonoBehaviour
 {
-    public static ScoreController Instance;
+    public static ScoreController instance;
     public TMPro.TMP_Text scoreDisplay;
     private int Score { get; set; }
 
     private void Awake()
     {
-        if (Instance != null && Instance != this) Destroy(gameObject);
+        if (instance != null && instance != this) Destroy(gameObject);
 
-        Instance = this;
+        instance = this;
     }
 
     public void AddScore(int amount)

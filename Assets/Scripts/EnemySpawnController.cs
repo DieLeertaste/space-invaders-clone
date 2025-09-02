@@ -33,10 +33,7 @@ public class EnemySpawnController : MonoBehaviour
     private void StopSpawning()
     {
         _isSpawning = false;
-        if (_spawnCoroutine != null)
-        {
-            StopCoroutine(_spawnCoroutine);
-        }
+        if (_spawnCoroutine != null) StopCoroutine(_spawnCoroutine);
     }
     private IEnumerator SpawnWaves()
     {
@@ -51,6 +48,7 @@ public class EnemySpawnController : MonoBehaviour
                 yield return new WaitForSeconds(0.5f);
             }
 
+            CleanUpDestroyedEnemies();
             yield return new WaitUntil(() => _activeEnemies.Count == 0);
             yield return new WaitForSeconds(timeBetweenWaves);
 
@@ -71,6 +69,8 @@ public class EnemySpawnController : MonoBehaviour
     }
     private void CleanUpDestroyedEnemies()
     {
+        // is used by SpawnWaves() and SpawnContinues() so its the best place for checking to stop
+        if (PauseController.instance.IsPaused) StopSpawning();
         _activeEnemies.RemoveAll(enemy => enemy == null);
     }
     private void SpawnEnemy()

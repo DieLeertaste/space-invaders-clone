@@ -285,7 +285,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SpaceInvaders_Health_0: -5513350640364851514
+      SpaceInvaders_Health_1: -6437992265152185607
+      SpaceInvaders_Health_2: 396259056645360257
+      SpaceInvaders_Health_3: -8889566870884673856
+      SpaceInvaders_Health_4: -1598685635086416073
+      SpaceInvaders_Health_5: -7467413282938096052
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -7,7 +7,6 @@ public class Enemy : MonoBehaviour
     public float moveSpeed = 5f;
     public float shootInterval = 2f;
     public GameObject bulletPrefab;
-    public int damage = 20;
     
     private GameObject _playerGameObject;
 
@@ -29,26 +28,30 @@ public class Enemy : MonoBehaviour
         var bullet = collider2d.gameObject.GetComponent<Bullet>();
         if (bullet == null) return;
         
-        var damage = bullet.damage;
-        if (health - damage <= 0) Killed();
-        else health -= damage;
+        var bulletDamage = bullet.damage;
+        if (health - bulletDamage <= 0) Killed();
+        else health -= bulletDamage;
         Destroy(bullet.gameObject);
     }
 
     private void Killed()
     {
-        ScoreController.Instance.AddScore(scoreValue);
+        ScoreController.instance.AddScore(scoreValue);
         Destroy(gameObject);
     }
 
     private void MoveToPlayer()
     {
+        if (PauseController.instance.IsPaused) return;
+        
         var direction = (_playerGameObject.transform.position - transform.position).normalized;
         transform.position += direction * (moveSpeed * Time.fixedDeltaTime);
     }
 
     public void Shoot()
     {
+        if (PauseController.instance.IsPaused) return;
+        
         Instantiate(bulletPrefab, transform.position, Quaternion.identity);
     }
 }

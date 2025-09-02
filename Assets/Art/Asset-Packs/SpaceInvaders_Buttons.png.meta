@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SpaceInvaders_Buttons_0: 6863710521189518868
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
